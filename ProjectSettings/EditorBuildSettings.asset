@@ -14,10 +14,24 @@ EditorBuildSettings:
   - enabled: 0
     path: Packages/ubc.ok.ovilab.roadmapauthoring/Assets/Scenes/VR_Scene.unity
     guid: 99c9720ab356a0642a771bea13969a76
-  - enabled: 1
+  - enabled: 0
     path: Assets/Roadmap.Generated/Scenes/generated_AR_Scene.unity
-    guid: 36c05d249d18fd743af1e420c48bb808
+    guid: f259e1b5b4305254faf8d3bf43525b7b
+  - enabled: 0
+    path: Assets/Roadmap.Generated/Scenes/generated_VR_Scene.unity
+    guid: 44e969250db99084ea107992647d2180
+  - enabled: 0
+    path: Assets/_Scenes/AR_Scene.unity
+    guid: 36be217bc63b0df449b7889edcc7f7fd
+  - enabled: 0
+    path: Assets/_Scenes/AR TestScene.unity
+    guid: b34c28763c4dfc0429872b05b9ee1d99
+  - enabled: 1
+    path: Assets/_Scenes/ARFishing.unity
+    guid: c0e5cc1e0167807428e0c413fe29a1c7
   m_configObjects:
+    Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 78c257b40cdfa0d49a8305ebbe79be86,
+      type: 2}
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 507327ded4aa4ac498f3327522f06b83,
       type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 62ac4e18a5dd0c24c9733ae8480d1aa1,
