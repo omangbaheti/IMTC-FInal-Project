@@ -11,6 +11,7 @@ public abstract class ActivityManager : MonoBehaviour
 
     [SerializeField] protected UnityEvent onEnableActivity = new UnityEvent();
     [SerializeField] protected UnityEvent onDisableActivity = new UnityEvent();
+    
 
     private void Awake()
     {
@@ -52,7 +53,7 @@ public abstract class ActivityManager : MonoBehaviour
         foreach (GameObject activityGO in activityObjects)
         {
             activityGO.SetActive(true);
-            IActivity activity = activityGO.F;
+            IActivity activity = (IActivity)activityGO.GetComponent(typeof(IActivity));
             onEnableActivity.AddListener(activity.OnEnableActivity);
             onDisableActivity.AddListener(activity.OnEnableActivity);
         }

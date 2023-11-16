@@ -13,11 +13,6 @@ public class CameraAnchor : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main.transform;
-        foreach (string key in tags)
-        {
-            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag(key);
-            activityObjects.Add(key, taggedObjects);  
-        }
     }
 
     void Update()
@@ -26,21 +21,6 @@ public class CameraAnchor : MonoBehaviour
         transform.rotation = mainCam.rotation;
     }
 
-    public void ActivateByTag(string currentActivityTag)
-    {
-        foreach (var gameOb in activityObjects[currentActivityTag])
-        {
-            gameOb.SetActive(true);
-        }
 
-        
-    }
     
-    public void DeactivateByTag(string currentActivityTag)
-    {
-        foreach (var gameOb in activityObjects[currentActivityTag])
-        {
-            gameOb.SetActive(false);
-        }
-    }
 }
