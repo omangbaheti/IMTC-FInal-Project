@@ -14,6 +14,7 @@ public class PowerBar : MonoBehaviour
     private Slider powerBar;
     private bool isBiteThrown;
     private bool isIncreasing = true;
+    
     void Start()
     {
         powerBar = GetComponent<Slider>();

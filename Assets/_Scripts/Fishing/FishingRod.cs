@@ -18,8 +18,20 @@ public class FishingRod : MonoBehaviour, IActivity
 
     private void OnEnable()
     {
+        FishingActivity.OnFishingStarted.AddListener(ThrowBait);
+    }
+    
+    private void OnDisable()
+    {
+        FishingActivity.OnFishingStarted.RemoveListener(ThrowBait);
+    }
+
+    private void ThrowBait()
+    {
         
     }
+
+    
 
     public void OnEnableActivity()
     {
@@ -31,10 +43,8 @@ public class FishingRod : MonoBehaviour, IActivity
     public void OnDisableActivity()
     {
         Debug.Log("Activity Disabled");
-        transform.DOMoveY(anchoredPosition.y-offset, .5f).OnComplete(DisableThisObject);
+        transform.DOMoveY(anchoredPosition.y-offset, .5f).
+            OnComplete((()=> gameObject.SetActive(false) ));
     }
-    public void DisableThisObject()
-    {
-        gameObject.SetActive(false); 
-    }
+    
 }
