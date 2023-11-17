@@ -35,13 +35,13 @@ public abstract class ActivityManager : MonoBehaviour
     {
         if (activityTrigger.gameObject.CompareTag("MainCamera"))
         {
-            Debug.Log("MainCamera");
             onEnableActivity?.Invoke();
         }
     }
     
     private void OnTriggerExit(Collider activityTrigger)
     {
+        Debug.Log("Exit");
         if (activityTrigger.gameObject.CompareTag("MainCamera"))
         {
             onDisableActivity?.Invoke();
@@ -53,9 +53,10 @@ public abstract class ActivityManager : MonoBehaviour
         foreach (GameObject activityGO in activityObjects)
         {
             activityGO.SetActive(true);
-            IActivity activity = (IActivity)activityGO.GetComponent(typeof(IActivity));
+            IActivity activity = activityGO.GetComponent(typeof(IActivity)) as IActivity;
+            if (activity == null) continue;
             onEnableActivity.AddListener(activity.OnEnableActivity);
-            onDisableActivity.AddListener(activity.OnEnableActivity);
+            onDisableActivity.AddListener(activity.OnDisableActivity);
         }
     }
     

@@ -7,11 +7,14 @@ using UnityEngine;
 
 public class FishingRod : MonoBehaviour, IActivity
 {
-    [SerializeField] private Vector3 offset = new Vector3(0,10,0);
-    public void Start()
+    [SerializeField] private float offset = 10f;
+    [SerializeField] private Vector3 anchoredPosition;
+
+    private void Awake()
     {
         
     }
+    
 
     private void OnEnable()
     {
@@ -20,13 +23,18 @@ public class FishingRod : MonoBehaviour, IActivity
 
     public void OnEnableActivity()
     {
+        Debug.Log("Activity Enabled");
         gameObject.SetActive(true);
-        transform.DOLocalMove(transform.position + offset, .5f).SetEase(Ease.OutCubic);
+        transform.DOMoveY( anchoredPosition.y, .5f).SetEase(Ease.OutCubic);
     }
     
     public void OnDisableActivity()
     {
-        transform.DOLocalMove(transform.position - offset, .5f);
-        gameObject.SetActive(false);
+        Debug.Log("Activity Disabled");
+        transform.DOMoveY(anchoredPosition.y-offset, .5f).OnComplete(DisableThisObject);
+    }
+    public void DisableThisObject()
+    {
+        gameObject.SetActive(false); 
     }
 }
