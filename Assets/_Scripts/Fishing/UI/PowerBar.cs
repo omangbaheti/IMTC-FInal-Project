@@ -17,7 +17,6 @@ public class PowerBar : MonoBehaviour
     void Start()
     {
         powerBar = GetComponent<Slider>();
-        OnStartFishing();
     }
 
     // Update is called once per frame
