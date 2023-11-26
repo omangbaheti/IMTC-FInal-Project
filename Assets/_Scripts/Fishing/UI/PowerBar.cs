@@ -18,6 +18,7 @@ public class PowerBar : MonoBehaviour
     void Start()
     {
         powerBar = GetComponent<Slider>();
+        OnStartFishing();
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class PowerBar : MonoBehaviour
 
     private void InterpolateSlider(float powerValue)
     {
-        if (powerValue < thresholds[0] && powerValue>=0)
+        if (powerValue>=0 && powerValue < thresholds[0])
         {
             float t = powerValue / thresholds[0];
             fillArea.color = Color.Lerp(_colors[0], _colors[1], t);
