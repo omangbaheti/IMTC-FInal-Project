@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class FishingActivity : ActivityManager
 {
-    public static UnityEvent OnFishingStarted = new UnityEvent();
+    public static UnityEvent OnThrowBait = new UnityEvent();
     
     private bool isFishingStarted;
     private void Update()
@@ -14,7 +14,7 @@ public class FishingActivity : ActivityManager
         {
             if (Input.touchCount > 0)
             {
-                OnFishingStarted?.Invoke();
+                OnThrowBait?.Invoke();
             }
         }
     }

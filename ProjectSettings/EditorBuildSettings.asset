@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/AR TestScene.unity
     guid: b34c28763c4dfc0429872b05b9ee1d99
   - enabled: 1
-    path: Assets/_Scenes/ARFishing.unity
+    path: Assets/_Scenes/ARSlingShot.unity
     guid: c0e5cc1e0167807428e0c413fe29a1c7
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 78c257b40cdfa0d49a8305ebbe79be86,

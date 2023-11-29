@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Scripts.Activities
+public class ActivityObject : MonoBehaviour
 {
-    public class ActivityObject : MonoBehaviour
-    {
-        
-    }
+    
 }

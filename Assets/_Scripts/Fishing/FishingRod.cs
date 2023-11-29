@@ -18,12 +18,12 @@ public class FishingRod : MonoBehaviour, IActivity
 
     private void OnEnable()
     {
-        FishingActivity.OnFishingStarted.AddListener(ThrowBait);
+        FishingActivity.OnThrowBait.AddListener(ThrowBait);
     }
     
     private void OnDisable()
     {
-        FishingActivity.OnFishingStarted.RemoveListener(ThrowBait);
+        FishingActivity.OnThrowBait.RemoveListener(ThrowBait);
     }
 
     private void ThrowBait()
