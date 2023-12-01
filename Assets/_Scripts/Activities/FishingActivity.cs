@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FishingActivity : ActivityManager
+public class FishingActivity : ActivityTrigger
 {
     public static UnityEvent OnThrowBait = new UnityEvent();
     

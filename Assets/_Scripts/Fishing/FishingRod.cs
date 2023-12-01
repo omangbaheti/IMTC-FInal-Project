@@ -37,13 +37,13 @@ public class FishingRod : MonoBehaviour, IActivity
     {
         Debug.Log("Activity Enabled");
         gameObject.SetActive(true);
-        transform.DOMoveY( anchoredPosition.y, .5f).SetEase(Ease.OutCubic);
+        transform.DOLocalMoveY( anchoredPosition.y, .5f).SetEase(Ease.OutCubic);
     }
     
     public void OnDisableActivity()
     {
         Debug.Log("Activity Disabled");
-        transform.DOMoveY(anchoredPosition.y-offset, .5f).
+        transform.DOLocalMoveY(anchoredPosition.y-offset, .5f).
             OnComplete((()=> gameObject.SetActive(false) ));
     }
     

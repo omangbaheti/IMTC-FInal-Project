@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FruitActivity : ActivityManager
+public class FruitActivity : ActivityTrigger
 {
     void Start()
     {
