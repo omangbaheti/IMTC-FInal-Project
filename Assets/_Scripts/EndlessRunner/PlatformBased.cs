@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class PlatformBased : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float variableSpeed = -0.4f;
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0, -4f * Time.deltaTime);
+        transform.position += new Vector3(0, 0, variableSpeed * Time.deltaTime);
     }
 }

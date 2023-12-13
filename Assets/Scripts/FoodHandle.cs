@@ -7,7 +7,8 @@ public class FoodHandle : MonoBehaviour
     [SerializeField] private GameObject slicedFood;
     void TriggerSlicedAnimation()
     {
-        GameObject slicedFoodTemp = Instantiate(slicedFood, transform.position, transform.rotation);
+        Vector3 spawnPosition = new Vector3 (transform.position.x, transform.position.y + 2, transform.position.z);
+        GameObject slicedFoodTemp = Instantiate(slicedFood, spawnPosition, transform.rotation);
         Destroy(gameObject);
 
     }
