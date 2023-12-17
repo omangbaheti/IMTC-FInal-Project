@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/_Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
     path: Packages/ubc.ok.ovilab.roadmapauthoring/Assets/Scenes/AR_Scene.unity
@@ -45,4 +45,6 @@ EditorBuildSettings:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 88086cdb92b22274c8422c0b7d9f3c3f,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b798737acdb4d2a47b856a3b1f5cdb70,
+      type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 4108a04f47a76514ebd3ba569c536b34,
       type: 2}
