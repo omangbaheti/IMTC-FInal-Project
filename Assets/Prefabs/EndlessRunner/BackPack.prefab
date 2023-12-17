@@ -184,6 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slicedSnow: {fileID: 9004507182738419663, guid: 43265f0179655cc4890c4ef13dfb0ff1,
     type: 3}
+  pointsForThisItems: 6
+  winterPlayerPoints: {fileID: 0}
 --- !u!114 &-1249621644741078237
 MonoBehaviour:
   m_ObjectHideFlags: 0

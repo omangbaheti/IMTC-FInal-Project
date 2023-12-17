@@ -5,6 +5,9 @@ using UnityEngine;
 public class SnowObjectHandle : MonoBehaviour
 {
     [SerializeField] private GameObject slicedSnow;
+    [SerializeField] int pointsForThisItems;
+    [HideInInspector] public WinterPlayerPoints winterPlayerPoints;
+
     void TriggerSlicedAnimation()
     {
         GameObject slicedFoodTemp = Instantiate(slicedSnow, transform.position, slicedSnow.transform.rotation);
@@ -17,15 +20,9 @@ public class SnowObjectHandle : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             TriggerSlicedAnimation();
+            winterPlayerPoints.UpdatePoints(pointsForThisItems);
         }
     }
 
-    //testing
-    private void Update()
-    {
-        if (Input.GetKeyDown("space"))
-        {
-            TriggerSlicedAnimation();
-        }
-    }
+    
 }
