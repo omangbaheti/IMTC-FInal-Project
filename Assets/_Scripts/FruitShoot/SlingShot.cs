@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Lean.Touch;
 using UnityEngine;
-using Input = Niantic.Lightship.AR.Input;
 
 public class SlingShot : MonoBehaviour, IActivity
 {
