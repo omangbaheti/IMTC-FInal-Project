@@ -256,10 +256,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7502417026080259385}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 162b98710b777924f90ed09af6135eec,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -2365678512766756962}
   m_SourcePrefab: {fileID: 100100000, guid: 162b98710b777924f90ed09af6135eec, type: 3}
 --- !u!4 &5021538750002986393 stripped
 Transform:
@@ -321,24 +317,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slicedSnow: {fileID: 6410140245639516785, guid: e131723905190f942a8e328d0501075f,
     type: 3}
---- !u!65 &-2365678512766756962
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5691360600231847715}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.7778089, y: 0.028274288, z: 0.16729257}
-  m_Center: {x: -0.00000004554613, y: 0.014137121, z: 0}
+  pointsForThisItems: 4
+  winterPlayerPoints: {fileID: 0}

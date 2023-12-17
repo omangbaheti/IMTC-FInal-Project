@@ -10,6 +10,7 @@ public class PlatformSpawner : MonoBehaviour
     [SerializeField] GameObject[] bottomItems;
 
     [SerializeField] GameObject currentPlatform;
+    [SerializeField] WinterPlayerPoints playerPoints;
 
     float dynamicDA;
     float timer = 0;
@@ -84,12 +85,14 @@ public class PlatformSpawner : MonoBehaviour
                 int randomItem = Random.Range(0, bottomItems.Length);
                 Vector3 positionA = new Vector3(transform.position.x + transform.position.x - 1, bottomItems[randomItem].transform.position.y, transform.position.z);
                 GameObject left = Instantiate(bottomItems[randomItem], positionA, bottomItems[randomItem].transform.rotation);
+                left.GetComponent<SnowObjectHandle>().winterPlayerPoints = playerPoints;
             }
             else
             {
                 int randomItem = Random.Range(0, bottomItems.Length);
                 Vector3 positionA = new Vector3(transform.position.x + transform.position.x + 1, bottomItems[randomItem].transform.position.y, transform.position.z);
                 GameObject left = Instantiate(bottomItems[randomItem], positionA, bottomItems[randomItem].transform.rotation);
+                left.GetComponent<SnowObjectHandle>().winterPlayerPoints = playerPoints;
             }
             
 

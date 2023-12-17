@@ -56,7 +56,8 @@ Material:
     - _RippleDensity: 17.7
     - _RippleSlimness: 6.12
     - _RippleSpeed: 1
-    - _WaveSpeed: 0.1
+    - _WaterAlpha: 0.53
+    - _WaveSpeed: 0.01
     m_Colors:
     - _BasedColour: {r: 0.06336775, g: 0.12437549, b: 0.1509434, a: 0}
     - _RippleColour: {r: 0.4317373, g: 1.711864, b: 1.867925, a: 0}
