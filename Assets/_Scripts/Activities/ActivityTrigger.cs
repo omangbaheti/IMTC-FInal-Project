@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class ActivityTrigger : MonoBehaviour
+public abstract class  ActivityTrigger : MonoBehaviour
 {
     [SerializeField] private string activityTag;
     [SerializeField] private GameObject[] activityObjects;
 
     [SerializeField] protected UnityEvent onEnableActivity = new UnityEvent();
     [SerializeField] protected UnityEvent onDisableActivity = new UnityEvent();
-    
 
     private void Awake()
     {
@@ -25,11 +24,7 @@ public abstract class ActivityTrigger : MonoBehaviour
     {
         DeactivateObjects();
     }
-
-    void Start()
-    {
-        
-    }
+    
 
     private void OnTriggerEnter(Collider activityTrigger)
     {

@@ -10,12 +10,6 @@ public class FishingActivity : ActivityTrigger
     private bool isFishingStarted;
     private void Update()
     {
-        if (!isFishingStarted)
-        {
-            if (Input.touchCount > 0)
-            {
-                OnThrowBait?.Invoke();
-            }
-        }
+        
     }
 }
