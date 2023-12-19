@@ -36,7 +36,7 @@ public class FishBehaviour : MonoBehaviour
         {
             Movement();
         }
-         else if (other.gameObject.CompareTag("FishBait"))
+        else if (other.gameObject.CompareTag("FishBait"))
         {
             status = "CAUGHT";
         }

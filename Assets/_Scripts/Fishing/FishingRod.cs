@@ -41,8 +41,6 @@ public class FishingRod : MonoBehaviour, IActivity
 
     private void Update()
     { 
-        transform.rotation = inputManager.rightController.rotation;
-        transform.position = inputManager.rightController.position;
         rope.SetPosition(0, tip.transform.position);
         rope.SetPosition(1, bait.transform.position);
         

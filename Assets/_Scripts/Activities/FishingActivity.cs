@@ -15,20 +15,16 @@ public class FishingActivity : ActivityTrigger
     
     private void OnEnable()
     {
-        inputManager.APress.action.performed += Fishing;
+        inputManager = XRInputManager.Instance;
+        inputManager.aPressed.AddListener(Fishing);
     }
 
     private void OnDisable()
     {
-        
+        inputManager.aPressed.RemoveListener(Fishing);
     }
 
-    private void Start()
-    {
-        inputManager = XRInputManager.Instance;
-    }
-
-    private void Fishing(InputAction.CallbackContext callbackContext)
+    private void Fishing()
     {
         isFishingStarted = !isFishingStarted;
         if (isFishingStarted)
