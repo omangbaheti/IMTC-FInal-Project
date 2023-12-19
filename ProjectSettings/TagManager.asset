@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FishActivity
   - FruitActivity
+  - FishBoundry
+  - FishBait
   layers:
   - Default
   - TransparentFX

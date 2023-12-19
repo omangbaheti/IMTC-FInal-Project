@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public abstract class  ActivityTrigger : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public abstract class  ActivityTrigger : MonoBehaviour
 
     [SerializeField] protected UnityEvent onEnableActivity = new UnityEvent();
     [SerializeField] protected UnityEvent onDisableActivity = new UnityEvent();
-
+    
     private void Awake()
     {
         activityObjects = GameObject.FindGameObjectsWithTag(activityTag);

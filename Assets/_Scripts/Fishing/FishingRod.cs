@@ -1,53 +1,64 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.XR;
+using UnityEngine.InputSystem;
 
 
 public class FishingRod : MonoBehaviour, IActivity
 {
-    [SerializeField] private float offset = 10f;
-    [SerializeField] private Vector3 anchoredPosition;
     [SerializeField] private GameObject bait;
+    [SerializeField] private Vector3 throwForce;
     [SerializeField] private GameObject tip;
     private LineRenderer rope;
-    private XRInputData _inputData;
+    private Vector3 devicePosition;
+    private Quaternion deviceRotation;
+    private XRInputManager inputManager;
+
+    private Rigidbody baitRB;
+    
     private void Awake()
     {
         bait = transform.GetChild(0).gameObject;
+        baitRB = bait.GetComponent<Rigidbody>();
+        baitRB.useGravity = false;
         rope = GetComponent<LineRenderer>();
         rope.positionCount = 2;
-    }
+        inputManager = XRInputManager.Instance;
 
-    private void Update()
-    { 
-        _inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 devicePosition); 
-        _inputData._rightController.TryGetFeatureValue(CommonUsages.deviceRotation, out Quaternion deviceRotation);
-        transform.rotation = deviceRotation;
-        transform.position = devicePosition;
-        rope.SetPosition(0, tip.transform.position);
-        rope.SetPosition(1, bait.transform.position);
-        
     }
-
     private void OnEnable()
     {
         FishingActivity.OnThrowBait.AddListener(ThrowBait);
+        FishingActivity.OnReelIn.AddListener(ReelIn);
     }
     
     private void OnDisable()
     {
         FishingActivity.OnThrowBait.RemoveListener(ThrowBait);
+        FishingActivity.OnReelIn.RemoveListener(ReelIn);
     }
+    
+    
 
-    private void ThrowBait()
-    {
+    private void Update()
+    { 
+        transform.rotation = inputManager.rightController.rotation;
+        transform.position = inputManager.rightController.position;
+        rope.SetPosition(0, tip.transform.position);
+        rope.SetPosition(1, bait.transform.position);
         
     }
-
     
+    private void ThrowBait()
+    {
+        baitRB.useGravity = true;
+        baitRB.AddForce(throwForce, ForceMode.Impulse);
+    }
+
+    private void ReelIn()
+    {
+        baitRB.useGravity = false;
+        baitRB.transform.DOMove(tip.transform.position, 1f);
+    }
 
     public void OnEnableActivity()
     {
