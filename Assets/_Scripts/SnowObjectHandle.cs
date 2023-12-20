@@ -14,15 +14,7 @@ public class SnowObjectHandle : MonoBehaviour
         Destroy(gameObject);
 
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Player")
-        {
-            TriggerSlicedAnimation();
-            winterPlayerPoints.UpdatePoints(pointsForThisItems);
-        }
-    }
+    
 
     
 }

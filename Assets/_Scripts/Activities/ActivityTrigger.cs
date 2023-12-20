@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public abstract class  ActivityTrigger : MonoBehaviour
 {
     [SerializeField] private string activityTag;
-    [SerializeField] private GameObject[] activityObjects;
+    [SerializeField] protected GameObject[] activityObjects;
 
     [SerializeField] protected UnityEvent onEnableActivity = new UnityEvent();
     [SerializeField] protected UnityEvent onDisableActivity = new UnityEvent();

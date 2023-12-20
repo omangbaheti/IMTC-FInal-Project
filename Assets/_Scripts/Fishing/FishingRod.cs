@@ -63,14 +63,14 @@ public class FishingRod : MonoBehaviour, IActivity
 
     public void OnEnableActivity()
     {
-        Debug.Log("Activity Enabled");
+        Debug.Log("Fishing Activity Enabled");
         gameObject.SetActive(true);
         
     }
     
     public void OnDisableActivity()
     {
-        Debug.Log("Activity Disabled");
+        Debug.Log("Fishing Activity Disabled");
         gameObject.SetActive(false);
     }
     

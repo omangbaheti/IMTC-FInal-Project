@@ -15,4 +15,13 @@ public class SnowActivity : ActivityTrigger
     {
         
     }
+    
+    protected override void DeactivateObjects()
+    {
+        base.DeactivateObjects();
+        foreach (var activity in activityObjects)
+        {
+            activity.SetActive(false);
+        }
+    }
 }
