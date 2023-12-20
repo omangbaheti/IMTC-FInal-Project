@@ -23,4 +23,17 @@ public class SkiRods : MonoBehaviour, IActivity
         rightRod.transform.position = inputManager.rightControllerTransform.position;
         rightRod.transform.rotation = inputManager.rightControllerTransform.rotation;
     }
+    
+    public void OnEnableActivity()
+    {
+        Debug.Log("Snow Activity Enabled");
+        gameObject.SetActive(true);
+        
+    }
+    
+    public void OnDisableActivity()
+    {
+        Debug.Log("Snow Activity Disabled");
+        gameObject.SetActive(false);
+    }
 }

@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class DestroyerQ : MonoBehaviour
 {
-
-    private void OnTriggerEnter(Collider other)
+    public WinterPlayerPoints winterPlayerPoints;
+    private void OnTriggerEnter(Collider trigger)
     {
-        Destroy(other.gameObject);
+        if (trigger.CompareTag("SnowActivity"))
+        {
+            winterPlayerPoints.UpdatePoints(1);
+            Destroy(trigger.gameObject); 
+        }
+        
     }
 }
