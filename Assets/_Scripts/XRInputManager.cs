@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class XRInputManager : Singleton<XRInputManager>
 {
-    [SerializeField] private Transform leftControllerTransform;
+    [SerializeField] public Transform leftControllerTransform;
     public OVRInput.Controller leftController;
     public UnityEvent indexTriggerPressedL;
     public UnityEvent indexTriggerAnalogL;
@@ -14,7 +14,7 @@ public class XRInputManager : Singleton<XRInputManager>
     public UnityEvent yPressed;
     public UnityEvent xPressed;
     
-    [SerializeField] private Transform rightControllerTransform;
+    [SerializeField] public Transform rightControllerTransform;
     public OVRInput.Controller rightController;
     public UnityEvent indexTriggerPressedR;
     public UnityEvent indexTriggerAnalogR;
@@ -31,6 +31,7 @@ public class XRInputManager : Singleton<XRInputManager>
         if (OVRInput.GetDown(OVRInput.Button.One, rightController))
         {
             aPressed?.Invoke();
+            Debug.Log("A pressed");
         }
         if (OVRInput.GetDown(OVRInput.Button.Two, rightController))
         {

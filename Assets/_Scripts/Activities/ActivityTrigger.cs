@@ -29,6 +29,7 @@ public abstract class  ActivityTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider activityTrigger)
     {
+        Debug.Log("Enter");
         if (activityTrigger.gameObject.CompareTag("MainCamera"))
         {
             onEnableActivity?.Invoke();

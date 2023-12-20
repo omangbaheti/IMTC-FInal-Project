@@ -9,7 +9,7 @@ public class FishBehaviour : MonoBehaviour
     [SerializeField] private float fishSpeed;
     private Rigidbody rigidbody;
     private bool changeDirection = false;
-    private GameObject bait;
+    public GameObject bait;
     private string status;
     void Start()
     {
@@ -19,15 +19,18 @@ public class FishBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if(bait == null) return;
         if (status == "GET_CAUGHT")
         {
-            transform.forward = bait.transform.position;
-            rigidbody.velocity = transform.forward * fishSpeed;
+            Vector3 followBaitVector = bait.transform.position - transform.position;
+            transform.forward = followBaitVector;
+            rigidbody.velocity = followBaitVector * (fishSpeed * 10f);
         }
         else if(status == "CAUGHT")
         {
             transform.position = bait.transform.position;
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,5 +56,6 @@ public class FishBehaviour : MonoBehaviour
     public void GetBaited()
     {
         status = "GET_CAUGHT";
+        Debug.Log("GetCaughtActivated");
     }
 }

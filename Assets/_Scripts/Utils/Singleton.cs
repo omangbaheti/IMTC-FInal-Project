@@ -42,9 +42,10 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
             instance = this as T;
             DontDestroyOnLoad ( gameObject );
         }
-        else
+        else if (instance != this)
         {
             Destroy ( gameObject );
+            Debug.Log("Singleton Destroyed");
         }
     }
 

@@ -8,15 +8,16 @@ TagManager:
   - FruitActivity
   - FishBoundry
   - FishBait
+  - SamplesInfoPanel
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Terrain
   - Water
   - UI
   - Particles
-  - 
+  - Interactive
   - 
   - 
   - 

@@ -5,21 +5,21 @@ using UnityEngine.InputSystem;
 
 public class FishingRod : MonoBehaviour, IActivity
 {
+    [SerializeField] private GameObject fishingRod;
     [SerializeField] private GameObject bait;
-    [SerializeField] private Vector3 throwForce;
     [SerializeField] private GameObject tip;
+    [SerializeField] private Vector3 throwForce;
     private LineRenderer rope;
     private Vector3 devicePosition;
     private Quaternion deviceRotation;
     private XRInputManager inputManager;
-
     private Rigidbody baitRB;
     
     private void Awake()
     {
-        bait = transform.GetChild(0).gameObject;
         baitRB = bait.GetComponent<Rigidbody>();
         baitRB.useGravity = false;
+        baitRB.constraints = RigidbodyConstraints.FreezeAll;
         rope = GetComponent<LineRenderer>();
         rope.positionCount = 2;
         inputManager = XRInputManager.Instance;
@@ -40,21 +40,24 @@ public class FishingRod : MonoBehaviour, IActivity
     
 
     private void Update()
-    { 
+    {
+        transform.position = inputManager.rightControllerTransform.position;
+        fishingRod.transform.rotation = inputManager.rightControllerTransform.rotation;
         rope.SetPosition(0, tip.transform.position);
         rope.SetPosition(1, bait.transform.position);
-        
     }
     
     private void ThrowBait()
     {
+        baitRB.constraints = RigidbodyConstraints.None;
         baitRB.useGravity = true;
-        baitRB.AddForce(throwForce, ForceMode.Impulse);
+        baitRB.AddRelativeForce(throwForce, ForceMode.Impulse);
     }
 
     private void ReelIn()
     {
         baitRB.useGravity = false;
+        baitRB.constraints = RigidbodyConstraints.FreezeAll;
         baitRB.transform.DOMove(tip.transform.position, 1f);
     }
 

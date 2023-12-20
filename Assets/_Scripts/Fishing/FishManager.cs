@@ -6,7 +6,8 @@ using Random = UnityEngine.Random;
 
 public class FishManager : MonoBehaviour, IActivity
 {
-    private FishBehaviour[] fishes;
+    [SerializeField] private FishBehaviour[] fishes;
+    [SerializeField] private GameObject bait;
     void Start()
     {
         fishes = GetComponentsInChildren<FishBehaviour>();
@@ -25,6 +26,17 @@ public class FishManager : MonoBehaviour, IActivity
     private void OnDisable()
     {
         FishingActivity.OnThrowBait.AddListener(SetFishBehavior);
+    }
+
+    private void OnTriggerEnter(Collider trigger)
+    {
+        if (trigger.CompareTag("FishBait"))
+        {
+            foreach (FishBehaviour fish in fishes)
+            {
+                fish.bait = trigger.gameObject;
+            }
+        }
     }
 
     private void SetFishBehavior()

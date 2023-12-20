@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 
 public class FishingActivity : ActivityTrigger
 {
-    public static UnityEvent OnThrowBait = new UnityEvent();
-    public static UnityEvent OnReelIn = new UnityEvent();
+    public static UnityEvent OnThrowBait = new();
+    public static UnityEvent OnReelIn = new();
     private bool isFishingStarted;
 
     private XRInputManager inputManager;
