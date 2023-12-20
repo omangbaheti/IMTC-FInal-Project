@@ -7,14 +7,14 @@ public class FishBehaviour : MonoBehaviour
 {
 
     [SerializeField] private float fishSpeed;
-    private Rigidbody rigidbody;
+    private Rigidbody fishRB;
     private bool changeDirection = false;
     public GameObject bait;
     private string status;
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
-        rigidbody.velocity = transform.forward * fishSpeed;
+        fishRB = GetComponent<Rigidbody>();
+        fishRB.velocity = transform.forward * fishSpeed;
     }
 
     private void Update()
@@ -24,7 +24,7 @@ public class FishBehaviour : MonoBehaviour
         {
             Vector3 followBaitVector = bait.transform.position - transform.position;
             transform.forward = followBaitVector;
-            rigidbody.velocity = followBaitVector * (fishSpeed * 10f);
+            fishRB.velocity = followBaitVector * (fishSpeed * 10f);
         }
         else if(status == "CAUGHT")
         {
@@ -49,7 +49,7 @@ public class FishBehaviour : MonoBehaviour
     private void Movement()
     {
         transform.Rotate(0, 180, 0);
-        rigidbody.velocity = transform.forward * fishSpeed;
+        fishRB.velocity = transform.forward * fishSpeed;
         changeDirection = false;
     }
 
