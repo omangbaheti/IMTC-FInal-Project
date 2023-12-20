@@ -9,6 +9,7 @@ TagManager:
   - FishBoundry
   - FishBait
   - SamplesInfoPanel
+  - SnowActivity
   layers:
   - Default
   - TransparentFX
