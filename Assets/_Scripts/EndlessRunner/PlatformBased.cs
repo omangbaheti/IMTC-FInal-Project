@@ -9,6 +9,7 @@ public class PlatformBased : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0, 0, variableSpeed * Time.deltaTime);
+        Vector3 velocity = new Vector3(0, 0, variableSpeed * Time.deltaTime);
+        transform.position += transform.forward * Time.deltaTime * variableSpeed;
     }
 }
