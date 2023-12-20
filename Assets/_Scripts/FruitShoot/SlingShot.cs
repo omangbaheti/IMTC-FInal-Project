@@ -8,42 +8,47 @@ using UnityEngine;
 public class SlingShot : MonoBehaviour, IActivity
 {
     
-    [SerializeField] private float offset = 10f;
-    [SerializeField] private Vector3 anchoredPosition;
     [SerializeField] private float force = 10f;
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private Transform spawnPoint;
 
     private Rigidbody ballRigidbody;
-    private Camera mainCam;
-    void Start()
+    private XRInputManager inputManager;
+    void Awake()
     {
-        mainCam = Camera.main;
+        
     }
 
     private void OnEnable()
     {
-        LeanTouch.OnFingerUp += HandleBall;
+        inputManager = XRInputManager.Instance;
+        inputManager.aPressed.AddListener(HandleBall);
     }
 
     private void OnDisable()
     {
-        LeanTouch.OnFingerUp -= HandleBall;
+        inputManager.aPressed.RemoveListener(HandleBall);
     }
-    
 
-    private void HandleBall(LeanFinger leanFinger)
+    private void Update()
     {
-        Debug.Log($"Hellow touch {leanFinger.ScreenPosition}");
+        transform.position = inputManager.rightControllerTransform.position;
+        transform.rotation = inputManager.rightControllerTransform.rotation;
+    }
+
+
+    private void HandleBall()
+    {
+        Debug.Log("A Pressed");
         if (ballRigidbody == null)
         {
             SpawnBall();
         }
     }
-    
-    public void SpawnBall()
+
+    private void SpawnBall()
     {
-        var ball = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity, transform);
+        var ball = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity);
         ballRigidbody = ball.GetComponent<Rigidbody>();
         ballRigidbody.useGravity = false;
         LaunchBall();
@@ -52,7 +57,7 @@ public class SlingShot : MonoBehaviour, IActivity
     public void LaunchBall()
     {
         ballRigidbody.useGravity = true;
-        ballRigidbody.AddForce(mainCam.transform.forward * force);
+        ballRigidbody.AddForce(inputManager.rightControllerTransform.transform.forward * force);
         StartCoroutine(DestroyBall());
     }
 
@@ -66,13 +71,11 @@ public class SlingShot : MonoBehaviour, IActivity
     {
         Debug.Log("Activity Enabled");
         gameObject.SetActive(true);
-        transform.DOLocalMoveY( anchoredPosition.y, .5f).SetEase(Ease.OutCubic);
     }
     
     public void OnDisableActivity()
     {
         Debug.Log("Activity Disabled");
-        transform.DOLocalMoveY(anchoredPosition.y-offset, .5f).
-            OnComplete((()=> gameObject.SetActive(false) ));
+        gameObject.SetActive(false);
     }
 }

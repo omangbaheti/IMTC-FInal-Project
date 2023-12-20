@@ -218,7 +218,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1768580665}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fa1e6101b17425d4ebc69f3afd6b60a6,
         type: 3}
@@ -243,12 +243,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fa1e6101b17425d4ebc69f3afd6b60a6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.96
+      value: -7.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa1e6101b17425d4ebc69f3afd6b60a6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.92
+      value: 2.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa1e6101b17425d4ebc69f3afd6b60a6,
         type: 3}
@@ -258,7 +258,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fa1e6101b17425d4ebc69f3afd6b60a6,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa1e6101b17425d4ebc69f3afd6b60a6,
         type: 3}
@@ -303,12 +303,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1017942231}
   m_SourcePrefab: {fileID: 100100000, guid: fa1e6101b17425d4ebc69f3afd6b60a6, type: 3}
---- !u!4 &220703613 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fa1e6101b17425d4ebc69f3afd6b60a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 220703612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &220703614 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fa1e6101b17425d4ebc69f3afd6b60a6,
@@ -921,8 +915,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 220703613}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1768580666
@@ -4814,4 +4807,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1768580665}
   - {fileID: 1156654180}
+  - {fileID: 220703612}
   - {fileID: 130451666}

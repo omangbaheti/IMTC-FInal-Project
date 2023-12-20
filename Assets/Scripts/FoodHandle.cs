@@ -14,23 +14,13 @@ public class FoodHandle : MonoBehaviour
         Destroy(gameObject);
 
     }
-
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider trigger)
     {
-        if (other.gameObject.tag == "Player")
+        if (trigger.CompareTag("Player"))
         {
             TriggerSlicedAnimation();
             playerPoints.UpdatePoints(pointsForThisItem);
         }
     }
-
-    //testing
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown("space"))
-    //    {
-    //        TriggerSlicedAnimation();
-    //    }
-    //}
+    
 }

@@ -10,6 +10,9 @@ TagManager:
   - FishBait
   - SamplesInfoPanel
   - SnowActivity
+  - BugCatchingActivity
+  - BugBoundary
+  - BugNet
   layers:
   - Default
   - TransparentFX

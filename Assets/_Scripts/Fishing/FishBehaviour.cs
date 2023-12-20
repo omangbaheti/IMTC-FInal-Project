@@ -17,6 +17,16 @@ public class FishBehaviour : MonoBehaviour
         fishRB.velocity = transform.forward * fishSpeed;
     }
 
+    private void OnEnable()
+    {
+        XRInputManager.Instance.bPressed.AddListener(ReleaseFish);
+    }
+
+    private void OnDisable()
+    {
+        XRInputManager.Instance.bPressed.RemoveListener(ReleaseFish);
+    }
+
     private void Update()
     {
         if(bait == null) return;
@@ -29,6 +39,11 @@ public class FishBehaviour : MonoBehaviour
         else if(status == "CAUGHT")
         {
             transform.position = bait.transform.position;
+        }
+        else if(status == "RELEASE")
+        {
+            fishRB.useGravity = true;
+            fishRB.constraints = RigidbodyConstraints.None;
         }
         
     }
@@ -57,5 +72,11 @@ public class FishBehaviour : MonoBehaviour
     {
         status = "GET_CAUGHT";
         Debug.Log("GetCaughtActivated");
+    }
+
+    private void ReleaseFish()
+    {
+        if(status == "CAUGHT")
+            status = "RELEASE";
     }
 }

@@ -14,10 +14,7 @@ public class SlingShotBulletMovement : MonoBehaviour
     //testing
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Space)) 
-        {
-            SpawnBullet();
-        }
+        
     }
 
     void SpawnBullet()
